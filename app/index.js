@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react";
+import ReactDOM from "react-dom";
 import "./index.css";
 
 // Component
@@ -9,7 +9,7 @@ import "./index.css";
 
 class App extends React.Component {
   render() {
-    return <div>Hacker News</div>
+    return <div>Hacker News for all!</div>
   }
 }
 
