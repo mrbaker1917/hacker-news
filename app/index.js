@@ -14,7 +14,6 @@ class App extends React.Component {
     return (
       <div className="container">
         <News />
-        <h1><FaBeer/></h1>
       </div>
     )
   }
