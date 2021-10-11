@@ -1,10 +1,10 @@
 import React from "react";
-import { fetchNews } from "../utils/api"
+import { fetchItem, fetchComments, fetchMainPosts, fetchUser, fetchPosts } from "../utils/api"
 
 function FieldsNav ({ selected, onUpdateField }) {
-  const fields = ["type", "by", "time", "title", "text", "url", "score"]
+  const fields = ["top", "new"]
   return (
-    <ul className="flex-center">
+    <ul className="flex-left">
       {fields.map((field) => (
         <li key={field}>
           <button 
@@ -24,7 +24,7 @@ export default class News extends React.Component {
     super(props)
 
     this.state = {
-      selectedField: "title",
+      selectedField: "top",
       items: null,
       error: null
     }
@@ -38,7 +38,7 @@ export default class News extends React.Component {
       error: null,
       items: null
     })
-    fetchNews()
+    fetchMainPosts(selectedField)
       .then((items) => this.setState({
         items,
         error: null,
@@ -61,6 +61,7 @@ export default class News extends React.Component {
 
     return (
       <React.Fragment>
+        <h1>Hacker News</h1>
         <FieldsNav
           selected={selectedField}
           onUpdateField={this.updateField}

@@ -10,7 +10,6 @@ body {
 
 ul {
   padding:0;
-  border: 1px dotted maroon;
   padding: 10px;
   border-radius: 5px;
 }
@@ -21,15 +20,14 @@ li {
 
 .container {
   max-width: 1200px;
-  height: 100%;
   margin: 0 auto;
   padding: 50px;
   border: 1px dotted maroon;
 }
 
-.flex-center {
+.flex-left {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
 
