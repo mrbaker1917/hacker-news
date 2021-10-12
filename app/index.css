@@ -2,6 +2,7 @@ html, body, #app {
   margin: 0;
   height: 100%;
   width: 100%;
+  background-color: grey;
 }
 
 body {
@@ -23,6 +24,7 @@ li {
   margin: 0 auto;
   padding: 50px;
   border: 1px dotted maroon;
+  background-color: aliceblue;
 }
 
 .flex-left {

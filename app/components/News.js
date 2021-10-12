@@ -10,11 +10,29 @@ function FieldsNav ({ selected, onUpdateField }) {
           <button 
           className="btn-clear nav-link"
           style={field === selected ? {textDecoration: "underline", color: "maroon", background: "beige"} : null}
-          onClick={() => onUpdateField(field)}>
+          onClick={() => onUpdateField(field)}
+          >
             {field}
             </button>
           </li>
       ))}
+    </ul>
+  )
+}
+
+function NewsGrid({ items }) {
+  return (
+    <ul className="news-list">
+      {items.map((item, index) => {
+        const { title, by, time, url } = item
+
+        return (
+          <li>
+            <a href={url} target="_blank"> {title} </a>
+            <p>by {by} on Time: {time}</p>
+          </li>
+        )
+      })}
     </ul>
   )
 }
@@ -36,7 +54,7 @@ export default class News extends React.Component {
     this.setState({
       selectedField,
       error: null,
-      items: null
+      // items: null
     })
     fetchMainPosts(selectedField)
       .then((items) => this.setState({
@@ -55,7 +73,6 @@ export default class News extends React.Component {
     return this.state.items === null && this.state.error === null
   }
 
-
   render() {
     const { selectedField, items, error } = this.state
 
@@ -71,7 +88,7 @@ export default class News extends React.Component {
 
         {error && <p>{error}</p>}
 
-        {items && <pre>{JSON.stringify(items, null, 2)}</pre>}
+        {items && <NewsGrid items={items} />}
       </React.Fragment>
     )
   }
