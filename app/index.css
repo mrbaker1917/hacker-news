@@ -48,12 +48,18 @@ li {
   border-radius: 3px;
 }
 
+li {
+  margin-bottom: 20px;
+}
+
 li a {
   text-decoration: none;
   color: maroon;
+  font-weight: 700;
 }
 
 li p {
+  margin-top: 0px;
   font-weight: 100;
   color: grey;
 }

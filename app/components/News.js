@@ -23,14 +23,23 @@ function FieldsNav ({ selected, onUpdateField }) {
 function NewsGrid({ items }) {
   return (
     <ul className="news-list">
-      {items.map((item, index) => {
-        const { id, title, by, time, url } = item
+      {items.map((item) => {
+        const { id, title, by, time, url, kids } = item
         const date = new Date(time*1000)
-
+        const hours = date.getHours()
+        const minutes = "0" + date.getMinutes()
+        const forTime = hours + ":" + minutes.substr(-2)
+        let numbComments = "0"
+        if (kids) { 
+          numbComments = kids.length.toString()
+        } else {
+          numbComments = "0"
+        }
+  
         return (
           <li key={id}>
             <a href={url} target="_blank"> {title} </a>
-            <p>by {by} on {date.toLocaleDateString("en-US")}, {date.getTime()}</p>
+            <p>by {by} on {date.toLocaleDateString("en-US")}, {forTime} with {numbComments} comments</p>
           </li>
         )
       })}
