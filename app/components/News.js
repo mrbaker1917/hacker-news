@@ -26,14 +26,18 @@ function NewsGrid({ items }) {
       {items.map((item) => {
         const { id, title, by, time, url, kids } = item
         const date = new Date(time*1000)
-        const hours = date.getHours()
+        let hours = date.getHours()
         const minutes = "0" + date.getMinutes()
-        const forTime = hours + ":" + minutes.substr(-2)
+        let forTime = ""
+        if (hours > "12") {
+          hours -= "12"
+          forTime = hours + ":" + minutes.substr(-2) + " PM"
+        } else {
+          forTime = hours + ":" + minutes.substr(-2) + " AM"
+        }
         let numbComments = "0"
         if (kids) { 
           numbComments = kids.length.toString()
-        } else {
-          numbComments = "0"
         }
   
         return (
