@@ -47,3 +47,13 @@ li {
   padding: 5px 10px;
   border-radius: 3px;
 }
+
+li a {
+  text-decoration: none;
+  color: maroon;
+}
+
+li p {
+  font-weight: 100;
+  color: grey;
+}

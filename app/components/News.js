@@ -24,12 +24,13 @@ function NewsGrid({ items }) {
   return (
     <ul className="news-list">
       {items.map((item, index) => {
-        const { title, by, time, url } = item
+        const { id, title, by, time, url } = item
+        const date = new Date(time*1000)
 
         return (
-          <li>
+          <li key={id}>
             <a href={url} target="_blank"> {title} </a>
-            <p>by {by} on Time: {time}</p>
+            <p>by {by} on {date.toLocaleDateString("en-US")}, {date.getTime()}</p>
           </li>
         )
       })}
