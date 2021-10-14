@@ -9,7 +9,7 @@ function FieldsNav ({ selected, onUpdateField }) {
         <li key={field}>
           <button 
           className="btn-clear nav-link"
-          style={field === selected ? {textDecoration: "underline", color: "maroon", background: "beige"} : null}
+          style={field === selected ? { color: "maroon", background: "white"} : null}
           onClick={() => onUpdateField(field)}
           >
             {field}
@@ -68,7 +68,6 @@ export default class News extends React.Component {
     this.setState({
       selectedField,
       error: null,
-      // items: null
     })
     fetchMainPosts(selectedField)
       .then((items) => this.setState({
